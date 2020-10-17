@@ -9,6 +9,7 @@ namespace DynamicIpMonitor
     using System;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.Net;
     using System.Windows.Forms;
 
     /// <summary>
@@ -23,6 +24,16 @@ namespace DynamicIpMonitor
         {
             // The InitializeComponent() call is required for Windows Forms designer support.
             this.InitializeComponent();
+        }
+
+        /// <summary>
+        /// Handles the start stop button click.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnStartStopButtonClick(object sender, EventArgs e)
+        {
+            // TODO Add code
         }
 
         /// <summary>
@@ -97,13 +108,17 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
-        /// Handles the start stop button click.
+        /// Sets the status.
         /// </summary>
-        /// <param name="sender">Sender object.</param>
-        /// <param name="e">Event arguments.</param>
-        private void OnStartStopButtonClick(object sender, EventArgs e)
+        /// <param name="main">The main string.</param>
+        /// <param name="secondary">The secondary string.</param>
+        private void SetStatus(string main, string secondary)
         {
-            // TODO Add code
+            // Set main 
+            this.mainToolStripStatusLabel.Text = main;
+
+            // Set secondary
+            this.secondaryUnitToolStripStatusLabel.Text = secondary;
         }
     }
 }
