@@ -8,6 +8,7 @@ namespace DynamicIpMonitor
     // Directives
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Drawing;
     using System.Net;
     using System.Timers;
@@ -38,7 +39,7 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
-        /// Handles the start stop button click.
+        /// Handles the start stop button click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
@@ -108,7 +109,7 @@ namespace DynamicIpMonitor
                 // Check if must copy
                 if (this.copyCheckBox.Checked)
                 {
-                    // Copy IP to clupboard
+                    // Copy IP to clipboard
                     Clipboard.SetText(this.ipAddress);
                 }
 
@@ -129,7 +130,7 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
-        /// Handles the new tool strip menu item click.
+        /// Handles the new tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
@@ -139,7 +140,17 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
-        /// Handles the save tool strip menu item click.
+        /// Handles the open tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnOpenToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the save tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
@@ -149,7 +160,57 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
-        /// Handles the exit tool strip menu item click.
+        /// Handles the save as tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnSaveAsToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the cut tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnCutToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the copy tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnCopyToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the paste tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnPasteToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the select all tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnSelectAllToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the exit tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
@@ -160,17 +221,18 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
-        /// Handles the daily releases public domain dailycom tool strip menu item click.
+        /// Handles the daily releases public domain dailycom tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
         private void OnDailyReleasesPublicDomainDailycomToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Open current website
+            Process.Start("https://publicdomaindaily.com");
         }
 
         /// <summary>
-        /// Handles the original thread donation codercom tool strip menu item click.
+        /// Handles the original thread donation codercom tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
@@ -180,7 +242,7 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
-        /// Handles the source code githubcom tool strip menu item click.
+        /// Handles the source code githubcom tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
@@ -190,7 +252,7 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
-        /// Handles the about tool strip menu item click.
+        /// Handles the about tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
