@@ -63,7 +63,7 @@ namespace DynamicIpMonitor
         	this.ipAddressLabel = new System.Windows.Forms.Label();
         	this.copyLabel = new System.Windows.Forms.Label();
         	this.copyCheckBox = new System.Windows.Forms.CheckBox();
-        	this.ipAdressTextBox = new System.Windows.Forms.TextBox();
+        	this.ipAddressTextBox = new System.Windows.Forms.TextBox();
         	this.mainMenuStrip.SuspendLayout();
         	this.mainStatusStrip.SuspendLayout();
         	this.mainTableLayoutPanel.SuspendLayout();
@@ -221,7 +221,7 @@ namespace DynamicIpMonitor
         	this.mainTableLayoutPanel.Controls.Add(this.ipAddressLabel, 0, 3);
         	this.mainTableLayoutPanel.Controls.Add(this.copyLabel, 1, 3);
         	this.mainTableLayoutPanel.Controls.Add(this.copyCheckBox, 1, 4);
-        	this.mainTableLayoutPanel.Controls.Add(this.ipAdressTextBox, 0, 4);
+        	this.mainTableLayoutPanel.Controls.Add(this.ipAddressTextBox, 0, 4);
         	this.mainTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.mainTableLayoutPanel.Location = new System.Drawing.Point(0, 24);
         	this.mainTableLayoutPanel.Name = "mainTableLayoutPanel";
@@ -337,13 +337,13 @@ namespace DynamicIpMonitor
         	this.copyCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         	this.copyCheckBox.UseVisualStyleBackColor = true;
         	// 
-        	// ipAdressTextBox
+        	// ipAddressTextBox
         	// 
-        	this.ipAdressTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.ipAdressTextBox.Location = new System.Drawing.Point(3, 139);
-        	this.ipAdressTextBox.Name = "ipAdressTextBox";
-        	this.ipAdressTextBox.Size = new System.Drawing.Size(186, 20);
-        	this.ipAdressTextBox.TabIndex = 3;
+        	this.ipAddressTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.ipAddressTextBox.Location = new System.Drawing.Point(3, 139);
+        	this.ipAddressTextBox.Name = "ipAddressTextBox";
+        	this.ipAddressTextBox.Size = new System.Drawing.Size(186, 20);
+        	this.ipAddressTextBox.TabIndex = 3;
         	// 
         	// MainForm
         	// 
@@ -369,7 +369,7 @@ namespace DynamicIpMonitor
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
-        private System.Windows.Forms.TextBox ipAdressTextBox;
+        private System.Windows.Forms.TextBox ipAddressTextBox;
         private System.Windows.Forms.CheckBox copyCheckBox;
         private System.Windows.Forms.Label copyLabel;
         private System.Windows.Forms.Label ipAddressLabel;

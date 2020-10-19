@@ -10,6 +10,7 @@ namespace DynamicIpMonitor
     using System.Collections.Generic;
     using System.Drawing;
     using System.Net;
+    using System.Timers;
     using System.Windows.Forms;
 
     /// <summary>
@@ -17,6 +18,16 @@ namespace DynamicIpMonitor
     /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// The ip address.
+        /// </summary>
+        string ipAddress;
+
+        /// <summary>
+        /// The ip address timer.
+        /// </summary>
+        System.Timers.Timer ipAddressTimer;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="T:DynamicIpMonitor.MainForm"/> class.
         /// </summary>
@@ -34,6 +45,45 @@ namespace DynamicIpMonitor
         private void OnStartStopButtonClick(object sender, EventArgs e)
         {
             // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the timer elapsed event.
+        /// </summary>
+        /// <param name="sender">Source object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnTimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            // Get the IP address
+            try
+            {
+                // Inform the user
+                this.SetStatus("Working:", "Getting iP address...");
+
+                // Set ip address
+                this.ipAddress = $"{Dns.GetHostAddresses(domainTextBox.Text)[0]}";
+
+                // Check if must copy
+                if (this.copyCheckBox.Checked)
+                {
+                    // Copy IP to clupboard
+                    Clipboard.SetText(this.ipAddress);
+                }
+
+                // Set ip address text box
+                this.ipAddressTextBox.Text = this.ipAddress;
+
+                // Inform the user
+                this.SetStatus("Success:", "IP address set");
+            }
+            catch (Exception ex)
+            {
+                // Inform the user
+                this.SetStatus("Error:", ex.Message);
+
+                // Halt flow
+                return;
+            }
         }
 
         /// <summary>
