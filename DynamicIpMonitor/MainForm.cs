@@ -377,12 +377,13 @@ namespace DynamicIpMonitor
         /// <summary>
         /// Saves the settings file.
         /// </summary>
-        private void SaveSettingsFile()
+        /// <param name="settingsFilePath">Settings file path.</param>
+        private void SaveSettingsFile(string settingsFilePath)
         {
             try
             {
                 // Use stream writer
-                using (StreamWriter streamWriter = new StreamWriter("DynamicIpMonitorSettings.txt", false))
+                using (StreamWriter streamWriter = new StreamWriter(settingsFilePath, false))
                 {
                     // Set xml serialzer
                     XmlSerializer xmlSerializer = new XmlSerializer(typeof(DynamicIpMonitorSettings));
