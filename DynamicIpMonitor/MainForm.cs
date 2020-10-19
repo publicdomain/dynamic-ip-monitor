@@ -220,7 +220,8 @@ namespace DynamicIpMonitor
         /// <param name="e">Event arguments.</param>
         private void OnCopyCheckBoxCheckedChanged(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Toggle copy text
+            this.copyCheckBox.Text = this.copyCheckBox.Text.EndsWith("o", StringComparison.InvariantCulture) ? "&Manual" : "&Auto";
         }
 
         /// <summary>
