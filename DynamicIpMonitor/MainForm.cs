@@ -361,10 +361,11 @@ namespace DynamicIpMonitor
         /// Loads the settings file.
         /// </summary>
         /// <returns>The settings file.</returns>
-        private DynamicIpMonitorSettings LoadSettingsFile()
+        /// <param name="settingsFilePath">Settings file path.</param>
+        private DynamicIpMonitorSettings LoadSettingsFile(string settingsFilePath)
         {
             // Use file stream
-            using (FileStream fileStream = File.OpenRead("DynamicIpMonitorSettings.txt"))
+            using (FileStream fileStream = File.OpenRead(settingsFilePath))
             {
                 // Set xml serialzer
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(DynamicIpMonitorSettings));
