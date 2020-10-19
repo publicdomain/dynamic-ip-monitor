@@ -21,12 +21,12 @@ namespace DynamicIpMonitor
         /// <summary>
         /// The ip address.
         /// </summary>
-        string ipAddress;
+        private string ipAddress;
 
         /// <summary>
         /// The ip address timer.
         /// </summary>
-        System.Timers.Timer ipAddressTimer;
+        private System.Timers.Timer ipAddressTimer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:DynamicIpMonitor.MainForm"/> class.
@@ -44,7 +44,49 @@ namespace DynamicIpMonitor
         /// <param name="e">Event arguments.</param>
         private void OnStartStopButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Check button text
+            if ((e != null) && this.startStopButton.Text.EndsWith("t", StringComparison.InvariantCulture))
+            {
+                // Check there's something to work with
+                if (this.domainTextBox.TextLength == 0)
+                {
+                    // Advise user
+                    this.SetStatus("Error:", "Empty domain!");
+
+                    // Focus doman text box
+                    this.domainTextBox.Focus();
+
+                    // Halt flow
+                    return;
+                }
+
+                // Set to stop
+                this.startStopButton.Text = "&Stop";
+                this.startStopButton.ForeColor = Color.Red;
+
+                // Disable domain text box
+                this.domainTextBox.Enabled = false;
+
+                // Process IP address timer
+                this.ipAddressTimer = new System.Timers.Timer((double)(this.intervalNumericUpDown.Value * 60 * 1000));
+                this.ipAddressTimer.Elapsed += this.OnTimerElapsed;
+                this.ipAddressTimer.Enabled = true;
+
+                // Trigger first timer elapsed
+                this.OnTimerElapsed(sender, null);
+            }
+            else
+            {
+                // Dispose of timer
+                this.ipAddressTimer.Dispose();
+
+                // Set to start
+                this.startStopButton.Text = "&Start";
+                this.startStopButton.ForeColor = Color.Green;
+
+                // Ensable domain text box
+                this.domainTextBox.Enabled = true;
+            }
         }
 
         /// <summary>
@@ -169,6 +211,34 @@ namespace DynamicIpMonitor
 
             // Set secondary
             this.secondaryUnitToolStripStatusLabel.Text = secondary;
+        }
+
+        /// <summary>
+        /// Handles the copy check box checked changed event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnCopyCheckBoxCheckedChanged(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the save on exit tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnSaveOnExitToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Saves the settings file.
+        /// </summary>
+        private void SaveSettingsFile()
+        {
+            // TODO Add code
         }
     }
 }
