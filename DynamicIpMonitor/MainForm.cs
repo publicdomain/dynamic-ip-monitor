@@ -43,6 +43,18 @@ namespace DynamicIpMonitor
         {
             // The InitializeComponent() call is required for Windows Forms designer support.
             this.InitializeComponent();
+
+            /* Load settings */
+
+            // Look for settings file
+            if (File.Exists("DynamicIpMonitorSettings.txt"))
+            {
+                // Load from disk
+                this.dynamicIpMonitorSettings = this.LoadSettingsFile();
+
+                // Set GUI
+                this.SetGuiByLoadedSettings();
+            }
         }
 
         /// <summary>
@@ -307,6 +319,24 @@ namespace DynamicIpMonitor
 
             // Toggle checked
             toolStripMenuItem.Checked = !toolStripMenuItem.Checked;
+        }
+
+        /// <summary>
+        /// Sets the GUI by loaded settings.
+        /// </summary>
+        private void SetGuiByLoadedSettings()
+        {
+            // Set domain
+            this.domainTextBox.Text = this.dynamicIpMonitorSettings.Domain;
+
+            // Set interval
+            this.intervalNumericUpDown.Value = this.dynamicIpMonitorSettings.Interval;
+
+            // Set copy mode
+            this.copyCheckBox.Checked = this.dynamicIpMonitorSettings.IsAutoCopy;
+
+            // Set save on exit menu item
+            this.saveOnExitToolStripMenuItem.Checked = this.dynamicIpMonitorSettings.SaveOnExit;
         }
 
         /// <summary>

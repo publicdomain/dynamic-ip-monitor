@@ -35,10 +35,10 @@ namespace DynamicIpMonitor
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:DynamicIpMonitor.DynamicIpMonitorSettings"/> is
-        /// manual copy.
+        /// auto copy.
         /// </summary>
-        /// <value><c>true</c> if is manual copy; otherwise, <c>false</c>.</value>
-        public bool IsManualCopy { get; set; } = false;
+        /// <value><c>true</c> if is auto copy; otherwise, <c>false</c>.</value>
+        public bool IsAutoCopy { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:DynamicIpMonitor.DynamicIpMonitorSettings"/> save
