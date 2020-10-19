@@ -361,14 +361,22 @@ namespace DynamicIpMonitor
         /// </summary>
         private void SaveSettingsFile()
         {
-            // Use stream writer
-            using (StreamWriter streamWriter = new StreamWriter("DynamicIpMonitorSettings.txt", false))
+            try
             {
-                // Set xml serialzer
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(DynamicIpMonitorSettings));
+                // Use stream writer
+                using (StreamWriter streamWriter = new StreamWriter("DynamicIpMonitorSettings.txt", false))
+                {
+                    // Set xml serialzer
+                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(DynamicIpMonitorSettings));
 
-                // Serialize settings data
-                xmlSerializer.Serialize(streamWriter, this.dynamicIpMonitorSettings);
+                    // Serialize settings data
+                    xmlSerializer.Serialize(streamWriter, this.dynamicIpMonitorSettings);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Advise user
+                MessageBox.Show($"Error saving settings file.{Environment.NewLine}{Environment.NewLine}Message:{Environment.NewLine}{ex.Message}", "File error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
