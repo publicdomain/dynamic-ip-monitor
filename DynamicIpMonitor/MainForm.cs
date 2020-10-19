@@ -37,6 +37,11 @@ namespace DynamicIpMonitor
         private DynamicIpMonitorSettings dynamicIpMonitorSettings = new DynamicIpMonitorSettings();
 
         /// <summary>
+        /// The dynamic ip monitor settings file path.
+        /// </summary>
+        private string dynamicIpMonitorSettingsFilePath = "DynamicIpMonitorSettings.txt";
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="T:DynamicIpMonitor.MainForm"/> class.
         /// </summary>
         public MainForm()
@@ -47,10 +52,10 @@ namespace DynamicIpMonitor
             /* Load settings */
 
             // Look for settings file
-            if (File.Exists("DynamicIpMonitorSettings.txt"))
+            if (File.Exists(this.dynamicIpMonitorSettingsFilePath))
             {
                 // Load from disk
-                this.dynamicIpMonitorSettings = this.LoadSettingsFile();
+                this.dynamicIpMonitorSettings = this.LoadSettingsFile(this.dynamicIpMonitorSettingsFilePath);
 
                 // Set GUI
                 this.SetGuiByLoadedSettings();
