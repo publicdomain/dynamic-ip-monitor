@@ -340,6 +340,24 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
+        /// Updates the settings by GUI.
+        /// </summary>
+        private void UpdateSettingsByGui()
+        {
+            // Update domain
+            this.dynamicIpMonitorSettings.Domain = this.domainTextBox.Text;
+
+            // Update interval
+            this.dynamicIpMonitorSettings.Interval = (int)this.intervalNumericUpDown.Value;
+
+            // Update copy mode
+            this.dynamicIpMonitorSettings.IsAutoCopy = this.copyCheckBox.Checked;
+
+            // Update save on exit
+            this.dynamicIpMonitorSettings.SaveOnExit = this.saveOnExitToolStripMenuItem.Checked;
+        }
+
+        /// <summary>
         /// Loads the settings file.
         /// </summary>
         /// <returns>The settings file.</returns>
