@@ -312,9 +312,18 @@ namespace DynamicIpMonitor
         /// <summary>
         /// Loads the settings file.
         /// </summary>
-        private void LoadSettingsFile()
+        /// <returns>The settings file.</returns>
+        private DynamicIpMonitorSettings LoadSettingsFile()
         {
-            // TODO Add code
+            // Use file stream
+            using (FileStream fileStream = File.OpenRead("DynamicIpMonitorSettings.txt"))
+            {
+                // Set xml serialzer
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(DynamicIpMonitorSettings));
+
+                // Return populated settings data
+                return xmlSerializer.Deserialize(fileStream) as DynamicIpMonitorSettings;
+            }
         }
 
         /// <summary>
