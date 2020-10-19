@@ -224,13 +224,17 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
-        /// Handles the save on exit tool strip menu item click event.
+        /// Handles the options tool strip menu item drop down item clicked event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
-        private void OnSaveOnExitToolStripMenuItemClick(object sender, EventArgs e)
+        private void OnOptionsToolStripMenuItemDropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            // TODO Add code
+            // Set tool strip menu item
+            ToolStripMenuItem toolStripMenuItem = (ToolStripMenuItem)e.ClickedItem;
+
+            // Toggle checked
+            toolStripMenuItem.Checked = !toolStripMenuItem.Checked;
         }
 
         /// <summary>

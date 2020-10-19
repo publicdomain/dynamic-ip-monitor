@@ -45,6 +45,8 @@ namespace DynamicIpMonitor
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveOnExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyReleasesPublicDomainDailycomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.originalThreadDonationCodercomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,8 +66,6 @@ namespace DynamicIpMonitor
             this.copyLabel = new System.Windows.Forms.Label();
             this.copyCheckBox = new System.Windows.Forms.CheckBox();
             this.ipAddressTextBox = new System.Windows.Forms.TextBox();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveOnExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.mainTableLayoutPanel.SuspendLayout();
@@ -139,6 +139,23 @@ namespace DynamicIpMonitor
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnExitToolStripMenuItemClick);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                                    this.saveOnExitToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.optionsToolStripMenuItem.Text = "&Options";
+            this.optionsToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.OnOptionsToolStripMenuItemDropDownItemClicked);
+            // 
+            // saveOnExitToolStripMenuItem
+            // 
+            this.saveOnExitToolStripMenuItem.Checked = true;
+            this.saveOnExitToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.saveOnExitToolStripMenuItem.Name = "saveOnExitToolStripMenuItem";
+            this.saveOnExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveOnExitToolStripMenuItem.Text = "&Save on exit";
             // 
             // helpToolStripMenuItem
             // 
@@ -353,23 +370,6 @@ namespace DynamicIpMonitor
             this.ipAddressTextBox.Name = "ipAddressTextBox";
             this.ipAddressTextBox.Size = new System.Drawing.Size(186, 20);
             this.ipAddressTextBox.TabIndex = 3;
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                                    this.saveOnExitToolStripMenuItem});
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.optionsToolStripMenuItem.Text = "&Options";
-            // 
-            // saveOnExitToolStripMenuItem
-            // 
-            this.saveOnExitToolStripMenuItem.Checked = true;
-            this.saveOnExitToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.saveOnExitToolStripMenuItem.Name = "saveOnExitToolStripMenuItem";
-            this.saveOnExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveOnExitToolStripMenuItem.Text = "&Save on exit";
-            this.saveOnExitToolStripMenuItem.Click += new System.EventHandler(this.OnSaveOnExitToolStripMenuItemClick);
             // 
             // MainForm
             // 
