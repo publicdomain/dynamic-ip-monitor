@@ -31,7 +31,7 @@ namespace DynamicIpMonitor
         /// Gets or sets the interval.
         /// </summary>
         /// <value>The interval.</value>
-        public int Interval { get; set; } = 1;
+        public int Interval { get; set; } = 30;
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:DynamicIpMonitor.DynamicIpMonitorSettings"/> is

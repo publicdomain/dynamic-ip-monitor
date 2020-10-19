@@ -10,9 +10,11 @@ namespace DynamicIpMonitor
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Drawing;
+    using System.IO;
     using System.Net;
     using System.Timers;
     using System.Windows.Forms;
+    using System.Xml.Serialization;
 
     /// <summary>
     /// Description of MainForm.
@@ -28,6 +30,11 @@ namespace DynamicIpMonitor
         /// The ip address timer.
         /// </summary>
         private System.Timers.Timer ipAddressTimer;
+
+        /// <summary>
+        /// The dynamic ip monitor settings.
+        /// </summary>
+        private DynamicIpMonitorSettings dynamicIpMonitorSettings = new DynamicIpMonitorSettings();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:DynamicIpMonitor.MainForm"/> class.
@@ -303,11 +310,27 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
+        /// Loads the settings file.
+        /// </summary>
+        private void LoadSettingsFile()
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
         /// Saves the settings file.
         /// </summary>
         private void SaveSettingsFile()
         {
-            // TODO Add code
+            // Use stream writer
+            using (StreamWriter streamWriter = new StreamWriter("DynamicIpMonitorSettings.txt", false))
+            {
+                // Set xml serialzer
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(DynamicIpMonitorSettings));
+
+                // Serialize settings data
+                xmlSerializer.Serialize(streamWriter, this.dynamicIpMonitorSettings);
+            }
         }
     }
 }
