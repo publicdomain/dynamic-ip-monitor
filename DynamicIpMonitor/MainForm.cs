@@ -178,7 +178,28 @@ namespace DynamicIpMonitor
         /// <param name="e">Event arguments.</param>
         private void OnNewToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Check if must remove settings file
+            if (File.Exists(this.dynamicIpMonitorSettingsFilePath))
+            {
+                // Remove settings file
+                File.Delete(this.dynamicIpMonitorSettingsFilePath);
+            }
+
+            // Check if must stop the monitor
+            if (this.startStopButton.Text.EndsWith("p", StringComparison.InvariantCulture))
+            {
+                // Stop the monitor
+                this.startStopButton.PerformClick();
+            }
+
+            // Clear IP text box
+            this.ipAddressTextBox.Clear();
+
+            // Reset settings
+            this.dynamicIpMonitorSettings = new DynamicIpMonitorSettings();
+
+            // Reset GUI with fresh setting
+            this.SetGuiByLoadedSettings();
         }
 
         /// <summary>
