@@ -307,7 +307,20 @@ namespace DynamicIpMonitor
         /// <param name="e">Event arguments.</param>
         private void OnCopyToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Check there's something to work with
+            if (this.ipAddressTextBox.Text.Length > 0)
+            {
+                // Copy IP address
+                Clipboard.SetText(this.ipAddressTextBox.Text);
+
+                // Update status
+                this.SetStatus("IP address text box copied.", string.Empty);
+            }
+            else
+            {
+                // Advise user
+                this.SetStatus("Empty IP address text box.", string.Empty);
+            }
         }
 
         /// <summary>
