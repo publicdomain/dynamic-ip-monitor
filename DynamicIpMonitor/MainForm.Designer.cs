@@ -191,7 +191,7 @@ namespace DynamicIpMonitor
         	this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
         	this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
         	        	        	| System.Windows.Forms.Keys.X)));
-        	this.cutToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+        	this.cutToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
         	this.cutToolStripMenuItem.Text = "Cu&t IP";
         	this.cutToolStripMenuItem.Click += new System.EventHandler(this.OnCutToolStripMenuItemClick);
         	// 
@@ -202,7 +202,7 @@ namespace DynamicIpMonitor
         	this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
         	this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
         	        	        	| System.Windows.Forms.Keys.C)));
-        	this.copyToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+        	this.copyToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
         	this.copyToolStripMenuItem.Text = "&Copy IP";
         	this.copyToolStripMenuItem.Click += new System.EventHandler(this.OnCopyToolStripMenuItemClick);
         	// 
@@ -211,21 +211,23 @@ namespace DynamicIpMonitor
         	this.pasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripMenuItem.Image")));
         	this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
         	this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-        	this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-        	this.pasteToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+        	this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+        	        	        	| System.Windows.Forms.Keys.V)));
+        	this.pasteToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
         	this.pasteToolStripMenuItem.Text = "&Paste domain";
         	this.pasteToolStripMenuItem.Click += new System.EventHandler(this.OnPasteToolStripMenuItemClick);
         	// 
         	// toolStripSeparator7
         	// 
         	this.toolStripSeparator7.Name = "toolStripSeparator7";
-        	this.toolStripSeparator7.Size = new System.Drawing.Size(186, 6);
+        	this.toolStripSeparator7.Size = new System.Drawing.Size(216, 6);
         	// 
         	// selectAllToolStripMenuItem
         	// 
         	this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-        	this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-        	this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+        	this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+        	        	        	| System.Windows.Forms.Keys.A)));
+        	this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
         	this.selectAllToolStripMenuItem.Text = "Select &All";
         	this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.OnSelectAllToolStripMenuItemClick);
         	// 

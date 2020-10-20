@@ -334,7 +334,17 @@ namespace DynamicIpMonitor
         /// <param name="e">Event arguments.</param>
         private void OnPasteToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Check there's something to paste
+            if (Clipboard.ContainsText())
+            {
+                // Copy to domain text box
+                this.domainTextBox.Text = Clipboard.GetText();
+            }
+            else
+            {
+                // Advise user
+                this.SetStatus("No text to paste.", string.Empty);
+            }
         }
 
         /// <summary>
