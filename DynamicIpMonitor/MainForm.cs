@@ -180,7 +180,14 @@ namespace DynamicIpMonitor
         /// <param name="e">Event arguments.</param>
         private void OnSaveToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Update settings by GUI values
+            this.UpdateSettingsByGui();
+
+            // Save settings to file
+            this.SaveSettingsFile(this.dynamicIpMonitorSettingsFilePath);
+
+            // Update status
+            this.SetStatus("Saved settings file to disk.", string.Empty);
         }
 
         /// <summary>
