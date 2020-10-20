@@ -297,7 +297,11 @@ namespace DynamicIpMonitor
         /// <param name="e">Event arguments.</param>
         private void OnCutToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Click copy
+            this.copyToolStripMenuItem.PerformClick();
+
+            // Clear IP address text box
+            this.ipAddressTextBox.Clear();
         }
 
         /// <summary>
