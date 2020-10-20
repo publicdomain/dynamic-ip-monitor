@@ -209,7 +209,36 @@ namespace DynamicIpMonitor
         /// <param name="e">Event arguments.</param>
         private void OnOpenToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Ensure it's stopped
+            if (!this.domainTextBox.Enabled)
+            {
+                // Advise user
+                MessageBox.Show("Please stop the monitor first.", "Monitor running", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                // Halt flow
+                return;
+            }
+
+            // Set save file name
+            this.openFileDialog.FileName = this.dynamicIpMonitorSettingsFilePath;
+
+            // Show open file dialog
+            if (this.openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // Load from disk
+                    this.dynamicIpMonitorSettings = this.LoadSettingsFile(this.openFileDialog.FileName);
+
+                    // Set GUI
+                    this.SetGuiByLoadedSettings();
+                }
+                catch (Exception exception)
+                {
+                    // Inform user
+                    MessageBox.Show($"Error when opening \"{Path.GetFileName(this.openFileDialog.FileName)}\":{Environment.NewLine}{exception.Message}", "Open file error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         /// <summary>
