@@ -74,6 +74,8 @@ namespace DynamicIpMonitor
         	this.copyLabel = new System.Windows.Forms.Label();
         	this.copyCheckBox = new System.Windows.Forms.CheckBox();
         	this.ipAddressTextBox = new System.Windows.Forms.TextBox();
+        	this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+        	this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
         	this.mainMenuStrip.SuspendLayout();
         	this.mainStatusStrip.SuspendLayout();
         	this.mainTableLayoutPanel.SuspendLayout();
@@ -459,6 +461,18 @@ namespace DynamicIpMonitor
         	this.ipAddressTextBox.Size = new System.Drawing.Size(186, 22);
         	this.ipAddressTextBox.TabIndex = 3;
         	// 
+        	// openFileDialog
+        	// 
+        	this.openFileDialog.DefaultExt = "txt";
+        	this.openFileDialog.Filter = "TXT Files (*.txt)|*.txt|All files (*.*)|*.*";
+        	this.openFileDialog.Title = "Open Dynamic IP Monitor settings";
+        	// 
+        	// saveFileDialog
+        	// 
+        	this.saveFileDialog.DefaultExt = "txt";
+        	this.saveFileDialog.Filter = "TXT Files (*.txt)|*.txt|All files (*.*)|*.*";
+        	this.saveFileDialog.Title = "Save Dynamic IP Monitor settings";
+        	// 
         	// MainForm
         	// 
         	this.AcceptButton = this.startStopButton;
@@ -484,6 +498,8 @@ namespace DynamicIpMonitor
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;

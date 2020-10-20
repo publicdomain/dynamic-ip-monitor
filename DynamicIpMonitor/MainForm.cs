@@ -236,7 +236,29 @@ namespace DynamicIpMonitor
         /// <param name="e">Event arguments.</param>
         private void OnSaveAsToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Set save file name
+            this.saveFileDialog.FileName = this.dynamicIpMonitorSettingsFilePath;
+
+            // Open save file dialog
+            if (this.saveFileDialog.ShowDialog() == DialogResult.OK && this.saveFileDialog.FileName.Length > 0)
+            {
+                try
+                {
+                    // Update settings by GUI values
+                    this.UpdateSettingsByGui();
+
+                    // Save settings to file
+                    this.SaveSettingsFile(this.saveFileDialog.FileName);
+                }
+                catch (Exception exception)
+                {
+                    // Inform user
+                    MessageBox.Show($"Error when saving to \"{Path.GetFileName(this.saveFileDialog.FileName)}\":{Environment.NewLine}{exception.Message}", "Save file error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Inform user
+                MessageBox.Show($"Saved settings file to \"{Path.GetFileName(this.saveFileDialog.FileName)}\"", "Settings file saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         /// <summary>
@@ -444,10 +466,10 @@ namespace DynamicIpMonitor
                     xmlSerializer.Serialize(streamWriter, this.dynamicIpMonitorSettings);
                 }
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
                 // Advise user
-                MessageBox.Show($"Error saving settings file.{Environment.NewLine}{Environment.NewLine}Message:{Environment.NewLine}{ex.Message}", "File error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error saving settings file.{Environment.NewLine}{Environment.NewLine}Message:{Environment.NewLine}{exception.Message}", "File error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
