@@ -154,6 +154,24 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
+        /// Handle the main form form closing event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnMainFormFormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Check if must save
+            if (this.saveOnExitToolStripMenuItem.Checked)
+            {
+                // Update settings by GUI values
+                this.UpdateSettingsByGui();
+
+                // Save settings to file
+                this.SaveSettingsFile(this.dynamicIpMonitorSettingsFilePath);
+            }
+        }
+
+        /// <summary>
         /// Handles the new tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
