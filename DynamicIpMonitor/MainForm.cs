@@ -444,7 +444,7 @@ namespace DynamicIpMonitor
             var aboutForm = new AboutForm(
                 $"About {programTitle}",
                 $"{programTitle} {version.Major}.{version.Minor}.{version.Build}",
-                $"Made for: davcom{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #273, Week #40 @ September 29, 2020",
+                $"Made for: davcom{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #272, Week #40 @ September 28, 2020",
                 licenseText,
                 this.Icon.ToBitmap());
 
