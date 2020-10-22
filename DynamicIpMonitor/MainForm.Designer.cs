@@ -51,8 +51,6 @@ namespace DynamicIpMonitor
         	this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-        	this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.saveOnExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -177,9 +175,7 @@ namespace DynamicIpMonitor
         	this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
         	        	        	this.cutToolStripMenuItem,
         	        	        	this.copyToolStripMenuItem,
-        	        	        	this.pasteToolStripMenuItem,
-        	        	        	this.toolStripSeparator7,
-        	        	        	this.selectAllToolStripMenuItem});
+        	        	        	this.pasteToolStripMenuItem});
         	this.editToolStripMenuItem.Name = "editToolStripMenuItem";
         	this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
         	this.editToolStripMenuItem.Text = "&Edit";
@@ -216,20 +212,6 @@ namespace DynamicIpMonitor
         	this.pasteToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
         	this.pasteToolStripMenuItem.Text = "&Paste domain";
         	this.pasteToolStripMenuItem.Click += new System.EventHandler(this.OnPasteToolStripMenuItemClick);
-        	// 
-        	// toolStripSeparator7
-        	// 
-        	this.toolStripSeparator7.Name = "toolStripSeparator7";
-        	this.toolStripSeparator7.Size = new System.Drawing.Size(216, 6);
-        	// 
-        	// selectAllToolStripMenuItem
-        	// 
-        	this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-        	this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-        	        	        	| System.Windows.Forms.Keys.A)));
-        	this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-        	this.selectAllToolStripMenuItem.Text = "Select &All";
-        	this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.OnSelectAllToolStripMenuItemClick);
         	// 
         	// optionsToolStripMenuItem
         	// 
@@ -502,8 +484,6 @@ namespace DynamicIpMonitor
         }
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;

@@ -12,9 +12,11 @@ namespace DynamicIpMonitor
     using System.Drawing;
     using System.IO;
     using System.Net;
+    using System.Reflection;
     using System.Timers;
     using System.Windows.Forms;
     using System.Xml.Serialization;
+    using PublicDomain;
 
     /// <summary>
     /// Description of MainForm.
@@ -30,6 +32,12 @@ namespace DynamicIpMonitor
         /// The ip address timer.
         /// </summary>
         private System.Timers.Timer ipAddressTimer;
+
+        /// <summary>
+        /// Gets or sets the associated icon.
+        /// </summary>
+        /// <value>The associated icon.</value>
+        private Icon associatedIcon;
 
         /// <summary>
         /// The dynamic ip monitor settings.
@@ -48,6 +56,14 @@ namespace DynamicIpMonitor
         {
             // The InitializeComponent() call is required for Windows Forms designer support.
             this.InitializeComponent();
+
+            /* Set associated icon */
+
+            // Set associated icon from exe file
+            this.associatedIcon = Icon.ExtractAssociatedIcon(typeof(MainForm).GetTypeInfo().Assembly.Location);
+
+            // Set public domain daily tool strip menu item image
+            this.dailyReleasesPublicDomainDailycomToolStripMenuItem.Image = this.associatedIcon.ToBitmap();
 
             /* Load settings */
 
@@ -348,16 +364,6 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
-        /// Handles the select all tool strip menu item click event.
-        /// </summary>
-        /// <param name="sender">Sender object.</param>
-        /// <param name="e">Event arguments.</param>
-        private void OnSelectAllToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            // TODO Add code
-        }
-
-        /// <summary>
         /// Handles the exit tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
@@ -408,7 +414,45 @@ namespace DynamicIpMonitor
         /// <param name="e">Event arguments.</param>
         private void OnAboutToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Set license text
+            var licenseText = $"CC0 1.0 Universal (CC0 1.0) - Public Domain Dedication{Environment.NewLine}" +
+                $"https://creativecommons.org/publicdomain/zero/1.0/legalcode{Environment.NewLine}{Environment.NewLine}" +
+                $"Libraries and icons have separate licenses.{Environment.NewLine}{Environment.NewLine}" +
+                $"Domain website icon by mohamed_hassan - Pixabay License{Environment.NewLine}" +
+                $"https://pixabay.com/vectors/domain-website-blogging-design-3655918/{Environment.NewLine}{Environment.NewLine}" +
+                $"Patreon icon used according to published brand guidelines{Environment.NewLine}" +
+                $"https://www.patreon.com/brand{Environment.NewLine}{Environment.NewLine}" +
+                $"GitHub mark icon used according to published logos and usage guidelines{Environment.NewLine}" +
+                $"https://github.com/logos{Environment.NewLine}{Environment.NewLine}" +
+                $"DonationCoder icon used with permission{Environment.NewLine}" +
+                $"https://www.donationcoder.com/forum/index.php?topic=48718{Environment.NewLine}{Environment.NewLine}" +
+                $"PublicDomain icon is based on the following source images:{Environment.NewLine}{Environment.NewLine}" +
+                $"Bitcoin by GDJ - Pixabay License{Environment.NewLine}" +
+                $"https://pixabay.com/vectors/bitcoin-digital-currency-4130319/{Environment.NewLine}{Environment.NewLine}" +
+                $"Letter P by ArtsyBee - Pixabay License{Environment.NewLine}" +
+                $"https://pixabay.com/illustrations/p-glamour-gold-lights-2790632/{Environment.NewLine}{Environment.NewLine}" +
+                $"Letter D by ArtsyBee - Pixabay License{Environment.NewLine}" +
+                $"https://pixabay.com/illustrations/d-glamour-gold-lights-2790573/{Environment.NewLine}{Environment.NewLine}";
+
+            // Set title
+            string programTitle = typeof(MainForm).GetTypeInfo().Assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title;
+
+            // Set version for generating semantic version 
+            Version version = typeof(MainForm).GetTypeInfo().Assembly.GetName().Version;
+
+            // Set about form
+            var aboutForm = new AboutForm(
+                $"About {programTitle}",
+                $"{programTitle} {version.Major}.{version.Minor}.{version.Build}",
+                $"Made for: davcom{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #273, Week #40 @ September 29, 2020",
+                licenseText,
+                this.Icon.ToBitmap());
+
+            // Set about form icon
+            aboutForm.Icon = this.associatedIcon;
+
+            // Show about form
+            aboutForm.ShowDialog();
         }
 
         /// <summary>
