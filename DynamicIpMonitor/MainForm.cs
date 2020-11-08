@@ -549,6 +549,9 @@ namespace DynamicIpMonitor
             // Set save on exit menu item
             this.saveOnExitToolStripMenuItem.Checked = this.dynamicIpMonitorSettings.SaveOnExit;
 
+            // Set Domain=IP format
+            this.domainIPFormatToolStripMenuItem.Checked = this.dynamicIpMonitorSettings.DomainIpFormat;
+
             // Set log errors to file menu item
             this.logErrorsToFileToolStripMenuItem.Checked = this.dynamicIpMonitorSettings.LogErrorToFile;
         }
@@ -569,6 +572,9 @@ namespace DynamicIpMonitor
 
             // Update save on exit
             this.dynamicIpMonitorSettings.SaveOnExit = this.saveOnExitToolStripMenuItem.Checked;
+
+            // Udate Domain=IP format
+            this.dynamicIpMonitorSettings.DomainIpFormat = this.domainIPFormatToolStripMenuItem.Checked;
 
             // Update log errors to file
             this.dynamicIpMonitorSettings.LogErrorToFile = this.logErrorsToFileToolStripMenuItem.Checked;

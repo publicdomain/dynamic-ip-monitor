@@ -48,6 +48,13 @@ namespace DynamicIpMonitor
         public bool SaveOnExit { get; set; } = true;
 
         /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="T:DynamicIpMonitor.DynamicIpMonitorSettings"/>
+        /// domain ip format.
+        /// </summary>
+        /// <value><c>true</c> if domain ip format; otherwise, <c>false</c>.</value>
+        public bool DomainIpFormat { get; set; } = false;
+
+        /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:DynamicIpMonitor.DynamicIpMonitorSettings"/> log
         /// error to file.
         /// </summary>
