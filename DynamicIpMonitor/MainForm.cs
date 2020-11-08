@@ -2,7 +2,6 @@
 //     CC0 1.0 Universal (CC0 1.0) - Public Domain Dedication
 //     https://creativecommons.org/publicdomain/zero/1.0/legalcode
 // </copyright>
-using System.Linq;
 
 namespace DynamicIpMonitor
 {
@@ -12,6 +11,7 @@ namespace DynamicIpMonitor
     using System.Diagnostics;
     using System.Drawing;
     using System.IO;
+    using System.Linq;
     using System.Net;
     using System.Reflection;
     using System.Timers;
@@ -163,16 +163,21 @@ namespace DynamicIpMonitor
                 }
                 catch (Exception ex)
                 {
-                    // Add event to error log
-                    File.AppendAllLines("ErrorLog.txt",
-                        new List<string>()
-                        {
-                            "----------------------",
-                            DateTime.UtcNow.ToString(),
-                            "----------------------",
-                            $"{domain}:",
-                            ex.Message
-                        });
+                    // Check if must process errors' log file
+                    if (this.logErrorsToFileToolStripMenuItem.Checked)
+                    {
+                        // Add event to error log
+                        File.AppendAllLines(
+                            "ErrorLog.txt",
+                            new List<string>()
+                            {
+                                "----------------------",
+                                DateTime.UtcNow.ToString(),
+                                "----------------------",
+                                $"{domain}:",
+                                ex.Message
+                            });
+                    }
 
                     // Set error 
                     ipOrError += $"Error";
@@ -196,7 +201,7 @@ namespace DynamicIpMonitor
             }
 
             // Set ip address text box
-            this.ipAddressTextBox.Text = ipAddressText;
+            this.ipAddressTextBox.Text = this.ipAddressText;
 
             // Inform the user
             this.SetStatus("Proessed:", $"{domainList.Count} domains.{(errorCount > 0 ? $" Errors: {errorCount}" : string.Empty)}");
@@ -543,6 +548,9 @@ namespace DynamicIpMonitor
 
             // Set save on exit menu item
             this.saveOnExitToolStripMenuItem.Checked = this.dynamicIpMonitorSettings.SaveOnExit;
+
+            // Set log errors to file menu item
+            this.logErrorsToFileToolStripMenuItem.Checked = this.dynamicIpMonitorSettings.LogErrorToFile;
         }
 
         /// <summary>
@@ -561,6 +569,9 @@ namespace DynamicIpMonitor
 
             // Update save on exit
             this.dynamicIpMonitorSettings.SaveOnExit = this.saveOnExitToolStripMenuItem.Checked;
+
+            // Update log errors to file
+            this.dynamicIpMonitorSettings.LogErrorToFile = this.logErrorsToFileToolStripMenuItem.Checked;
         }
 
         /// <summary>
@@ -604,11 +615,6 @@ namespace DynamicIpMonitor
                 // Advise user
                 MessageBox.Show($"Error saving settings file.{Environment.NewLine}{Environment.NewLine}Message:{Environment.NewLine}{exception.Message}", "File error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        void OnSaveOnExitToolStripMenuItemDropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
     }
 }

@@ -75,6 +75,7 @@ namespace DynamicIpMonitor
         	this.ipAddressTextBox = new System.Windows.Forms.TextBox();
         	this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
         	this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+        	this.logErrorsToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.mainMenuStrip.SuspendLayout();
         	this.mainStatusStrip.SuspendLayout();
         	this.mainTableLayoutPanel.SuspendLayout();
@@ -218,7 +219,8 @@ namespace DynamicIpMonitor
         	// 
         	this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
         	        	        	this.saveOnExitToolStripMenuItem,
-        	        	        	this.domainIPFormatToolStripMenuItem});
+        	        	        	this.domainIPFormatToolStripMenuItem,
+        	        	        	this.logErrorsToFileToolStripMenuItem});
         	this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
         	this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
         	this.optionsToolStripMenuItem.Text = "&Options";
@@ -253,7 +255,7 @@ namespace DynamicIpMonitor
         	// weeklyReleasesPublicDomainWeeklycomToolStripMenuItem
         	// 
         	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Name = "weeklyReleasesPublicDomainWeeklycomToolStripMenuItem";
-        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
         	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Text = "Weekly releases @ PublicDomainWeekly.com";
         	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Click += new System.EventHandler(this.OnWeeklyReleasesPublicDomainWeeklycomToolStripMenuItemClick);
         	// 
@@ -261,7 +263,7 @@ namespace DynamicIpMonitor
         	// 
         	this.originalThreadDonationCodercomToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("originalThreadDonationCodercomToolStripMenuItem.Image")));
         	this.originalThreadDonationCodercomToolStripMenuItem.Name = "originalThreadDonationCodercomToolStripMenuItem";
-        	this.originalThreadDonationCodercomToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+        	this.originalThreadDonationCodercomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
         	this.originalThreadDonationCodercomToolStripMenuItem.Text = "&Original thread @ DonationCoder.com";
         	this.originalThreadDonationCodercomToolStripMenuItem.Click += new System.EventHandler(this.OnOriginalThreadDonationCodercomToolStripMenuItemClick);
         	// 
@@ -269,19 +271,19 @@ namespace DynamicIpMonitor
         	// 
         	this.sourceCodeGithubcomToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sourceCodeGithubcomToolStripMenuItem.Image")));
         	this.sourceCodeGithubcomToolStripMenuItem.Name = "sourceCodeGithubcomToolStripMenuItem";
-        	this.sourceCodeGithubcomToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+        	this.sourceCodeGithubcomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
         	this.sourceCodeGithubcomToolStripMenuItem.Text = "Source code @ Github.com";
         	this.sourceCodeGithubcomToolStripMenuItem.Click += new System.EventHandler(this.OnSourceCodeGithubcomToolStripMenuItemClick);
         	// 
         	// toolStripSeparator2
         	// 
         	this.toolStripSeparator2.Name = "toolStripSeparator2";
-        	this.toolStripSeparator2.Size = new System.Drawing.Size(286, 6);
+        	this.toolStripSeparator2.Size = new System.Drawing.Size(310, 6);
         	// 
         	// aboutToolStripMenuItem
         	// 
         	this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-        	this.aboutToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+        	this.aboutToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
         	this.aboutToolStripMenuItem.Text = "&About...";
         	this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAboutToolStripMenuItemClick);
         	// 
@@ -465,6 +467,14 @@ namespace DynamicIpMonitor
         	this.saveFileDialog.Filter = "TXT Files (*.txt)|*.txt|All files (*.*)|*.*";
         	this.saveFileDialog.Title = "Save Dynamic IP Monitor settings";
         	// 
+        	// logErrorsToFileToolStripMenuItem
+        	// 
+        	this.logErrorsToFileToolStripMenuItem.Checked = true;
+        	this.logErrorsToFileToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+        	this.logErrorsToFileToolStripMenuItem.Name = "logErrorsToFileToolStripMenuItem";
+        	this.logErrorsToFileToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+        	this.logErrorsToFileToolStripMenuItem.Text = "&Log errors to file";
+        	// 
         	// MainForm
         	// 
         	this.AcceptButton = this.startStopButton;
@@ -490,6 +500,7 @@ namespace DynamicIpMonitor
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
+        private System.Windows.Forms.ToolStripMenuItem logErrorsToFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem domainIPFormatToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;

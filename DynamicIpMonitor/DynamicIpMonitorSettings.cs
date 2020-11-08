@@ -44,7 +44,14 @@ namespace DynamicIpMonitor
         /// Gets or sets a value indicating whether this <see cref="T:DynamicIpMonitor.DynamicIpMonitorSettings"/> save
         /// on exit.
         /// </summary>
-        /// <value><c>true</c> if save on exit; otherwise, <c>false</c>.</value>
+        /// <value><c>true</c> if it saves on exit; otherwise, <c>false</c>.</value>
         public bool SaveOnExit { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="T:DynamicIpMonitor.DynamicIpMonitorSettings"/> log
+        /// error to file.
+        /// </summary>
+        /// <value><c>true</c> if it logs the error to file; otherwise, <c>false</c>.</value>
+        public bool LogErrorToFile { get; set; } = true;
     }
 }
