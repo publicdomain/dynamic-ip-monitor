@@ -55,7 +55,7 @@ namespace DynamicIpMonitor
         	this.saveOnExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.domainIPFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.dailyReleasesPublicDomainDailycomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.originalThreadDonationCodercomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.sourceCodeGithubcomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -241,7 +241,7 @@ namespace DynamicIpMonitor
         	// helpToolStripMenuItem
         	// 
         	this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-        	        	        	this.dailyReleasesPublicDomainDailycomToolStripMenuItem,
+        	        	        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem,
         	        	        	this.originalThreadDonationCodercomToolStripMenuItem,
         	        	        	this.sourceCodeGithubcomToolStripMenuItem,
         	        	        	this.toolStripSeparator2,
@@ -250,12 +250,12 @@ namespace DynamicIpMonitor
         	this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
         	this.helpToolStripMenuItem.Text = "&Help";
         	// 
-        	// dailyReleasesPublicDomainDailycomToolStripMenuItem
+        	// weeklyReleasesPublicDomainWeeklycomToolStripMenuItem
         	// 
-        	this.dailyReleasesPublicDomainDailycomToolStripMenuItem.Name = "dailyReleasesPublicDomainDailycomToolStripMenuItem";
-        	this.dailyReleasesPublicDomainDailycomToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
-        	this.dailyReleasesPublicDomainDailycomToolStripMenuItem.Text = "Daily releases @ PublicDomainDaily.com";
-        	this.dailyReleasesPublicDomainDailycomToolStripMenuItem.Click += new System.EventHandler(this.OnDailyReleasesPublicDomainDailycomToolStripMenuItemClick);
+        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Name = "weeklyReleasesPublicDomainWeeklycomToolStripMenuItem";
+        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Text = "Weekly releases @ PublicDomainWeekly.com";
+        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Click += new System.EventHandler(this.OnWeeklyReleasesPublicDomainWeeklycomToolStripMenuItemClick);
         	// 
         	// originalThreadDonationCodercomToolStripMenuItem
         	// 
@@ -524,7 +524,7 @@ namespace DynamicIpMonitor
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem sourceCodeGithubcomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem originalThreadDonationCodercomToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dailyReleasesPublicDomainDailycomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem weeklyReleasesPublicDomainWeeklycomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
         private System.Windows.Forms.MenuStrip mainMenuStrip;

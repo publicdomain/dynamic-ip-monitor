@@ -63,8 +63,8 @@ namespace DynamicIpMonitor
             // Set associated icon from exe file
             this.associatedIcon = Icon.ExtractAssociatedIcon(typeof(MainForm).GetTypeInfo().Assembly.Location);
 
-            // Set public domain daily tool strip menu item image
-            this.dailyReleasesPublicDomainDailycomToolStripMenuItem.Image = this.associatedIcon.ToBitmap();
+            // Set public domain weekly tool strip menu item image
+            this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Image = this.associatedIcon.ToBitmap();
 
             /* Load settings */
 
@@ -408,14 +408,14 @@ namespace DynamicIpMonitor
         }
 
         /// <summary>
-        /// Handles the daily releases public domain dailycom tool strip menu item click event.
+        /// Handles the weekly releases public domain weeklycom tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
-        private void OnDailyReleasesPublicDomainDailycomToolStripMenuItemClick(object sender, EventArgs e)
+        private void OnWeeklyReleasesPublicDomainWeeklycomToolStripMenuItemClick(object sender, EventArgs e)
         {
             // Open current website
-            Process.Start("https://publicdomaindaily.com");
+            Process.Start("https://publicdomainweekly.com");
         }
 
         /// <summary>
