@@ -2,6 +2,7 @@
 //     CC0 1.0 Universal (CC0 1.0) - Public Domain Dedication
 //     https://creativecommons.org/publicdomain/zero/1.0/legalcode
 // </copyright>
+using System.Linq;
 
 namespace DynamicIpMonitor
 {
@@ -24,9 +25,9 @@ namespace DynamicIpMonitor
     public partial class MainForm : Form
     {
         /// <summary>
-        /// The ip address.
+        /// The IP address text.
         /// </summary>
-        private string ipAddress;
+        private string ipAddressText;
 
         /// <summary>
         /// The ip address timer.
@@ -137,36 +138,68 @@ namespace DynamicIpMonitor
         /// <param name="e">Event arguments.</param>
         private void OnTimerElapsed(object sender, ElapsedEventArgs e)
         {
-            // Get the IP address
-            try
+            // [TODO] Set domain list. [Can be cleaned by regex. Invalid character input can be prevented on key preview.]
+            List<string> domainList = this.domainTextBox.Text.Replace(" ", string.Empty).Split(',').ToList();
+
+            // TODO Declare IP addresses list [Type can be changed to System.Net.IPAddress]
+            List<string> ipAddressList = new List<string>();
+
+            // Error count
+            int errorCount = 0;
+
+            // Process domain list
+            foreach (string domain in domainList)
             {
-                // Inform the user
-                this.SetStatus("Working:", "Getting iP address...");
+                // IP address or error string
+                string ipOrError = this.domainIPFormatToolStripMenuItem.Checked ? $"{domain}=" : string.Empty;
 
-                // Set ip address
-                this.ipAddress = $"{Dns.GetHostAddresses(domainTextBox.Text)[0]}";
-
-                // Check if must copy
-                if (this.copyCheckBox.Checked)
+                try
                 {
-                    // Copy IP to clipboard
-                    Clipboard.SetText(this.ipAddress);
+                    // Inform the user
+                    this.SetStatus($"Working:", "Getting IP for {domain}...");
+
+                    // Set IP
+                    ipOrError += $"{Dns.GetHostAddresses(domain)[0]}";
+                }
+                catch (Exception ex)
+                {
+                    // Add event to error log
+                    File.AppendAllLines("ErrorLog.txt",
+                        new List<string>()
+                        {
+                            "----------------------",
+                            DateTime.UtcNow.ToString(),
+                            "----------------------",
+                            $"{domain}:",
+                            ex.Message
+                        });
+
+                    // Set error 
+                    ipOrError += $"Error";
+
+                    // Raise error count
+                    errorCount++;
                 }
 
-                // Set ip address text box
-                this.ipAddressTextBox.Text = this.ipAddress;
-
-                // Inform the user
-                this.SetStatus("Success:", "IP address set");
+                // Add result to IP address list
+                ipAddressList.Add(ipOrError);
             }
-            catch (Exception ex)
+
+            // Set IP address(es) text
+            this.ipAddressText = string.Join(", ", ipAddressList);
+
+            // Check if must copy
+            if (this.copyCheckBox.Checked)
             {
-                // Inform the user
-                this.SetStatus("Error:", ex.Message);
-
-                // Halt flow
-                return;
+                // Copy IP address(es) to clipboard
+                Clipboard.SetText(this.ipAddressText);
             }
+
+            // Set ip address text box
+            this.ipAddressTextBox.Text = ipAddressText;
+
+            // Inform the user
+            this.SetStatus("Proessed:", $"{domainList.Count} domains.{(errorCount > 0 ? $" Errors: {errorCount}" : string.Empty)}");
         }
 
         /// <summary>
@@ -571,6 +604,11 @@ namespace DynamicIpMonitor
                 // Advise user
                 MessageBox.Show($"Error saving settings file.{Environment.NewLine}{Environment.NewLine}Message:{Environment.NewLine}{exception.Message}", "File error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        void OnSaveOnExitToolStripMenuItemDropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

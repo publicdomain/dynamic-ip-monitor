@@ -53,6 +53,7 @@ namespace DynamicIpMonitor
         	this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.saveOnExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.domainIPFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.dailyReleasesPublicDomainDailycomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.originalThreadDonationCodercomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -216,7 +217,8 @@ namespace DynamicIpMonitor
         	// optionsToolStripMenuItem
         	// 
         	this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-        	        	        	this.saveOnExitToolStripMenuItem});
+        	        	        	this.saveOnExitToolStripMenuItem,
+        	        	        	this.domainIPFormatToolStripMenuItem});
         	this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
         	this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
         	this.optionsToolStripMenuItem.Text = "&Options";
@@ -227,8 +229,14 @@ namespace DynamicIpMonitor
         	this.saveOnExitToolStripMenuItem.Checked = true;
         	this.saveOnExitToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
         	this.saveOnExitToolStripMenuItem.Name = "saveOnExitToolStripMenuItem";
-        	this.saveOnExitToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+        	this.saveOnExitToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
         	this.saveOnExitToolStripMenuItem.Text = "&Save on exit";
+        	// 
+        	// domainIPFormatToolStripMenuItem
+        	// 
+        	this.domainIPFormatToolStripMenuItem.Name = "domainIPFormatToolStripMenuItem";
+        	this.domainIPFormatToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+        	this.domainIPFormatToolStripMenuItem.Text = "Domain=IP format";
         	// 
         	// helpToolStripMenuItem
         	// 
@@ -291,15 +299,15 @@ namespace DynamicIpMonitor
         	// mainToolStripStatusLabel
         	// 
         	this.mainToolStripStatusLabel.Name = "mainToolStripStatusLabel";
-        	this.mainToolStripStatusLabel.Size = new System.Drawing.Size(116, 17);
-        	this.mainToolStripStatusLabel.Text = "Interval expressed in:";
+        	this.mainToolStripStatusLabel.Size = new System.Drawing.Size(130, 17);
+        	this.mainToolStripStatusLabel.Text = "Separate domains with:";
         	// 
         	// secondaryUnitToolStripStatusLabel
         	// 
         	this.secondaryUnitToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.secondaryUnitToolStripStatusLabel.Name = "secondaryUnitToolStripStatusLabel";
-        	this.secondaryUnitToolStripStatusLabel.Size = new System.Drawing.Size(52, 17);
-        	this.secondaryUnitToolStripStatusLabel.Text = "Minutes";
+        	this.secondaryUnitToolStripStatusLabel.Size = new System.Drawing.Size(54, 17);
+        	this.secondaryUnitToolStripStatusLabel.Text = "Commas";
         	// 
         	// mainTableLayoutPanel
         	// 
@@ -350,7 +358,7 @@ namespace DynamicIpMonitor
         	this.label1.Name = "label1";
         	this.label1.Size = new System.Drawing.Size(186, 25);
         	this.label1.TabIndex = 1;
-        	this.label1.Text = "Domain:";
+        	this.label1.Text = "Domain(s):";
         	this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         	// 
         	// label2
@@ -406,7 +414,7 @@ namespace DynamicIpMonitor
         	this.ipAddressLabel.Name = "ipAddressLabel";
         	this.ipAddressLabel.Size = new System.Drawing.Size(186, 25);
         	this.ipAddressLabel.TabIndex = 3;
-        	this.ipAddressLabel.Text = "IP address:";
+        	this.ipAddressLabel.Text = "IP address(es):";
         	this.ipAddressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         	// 
         	// copyLabel
@@ -482,6 +490,7 @@ namespace DynamicIpMonitor
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
+        private System.Windows.Forms.ToolStripMenuItem domainIPFormatToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
