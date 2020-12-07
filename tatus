@@ -1,74 +1,0 @@
-[1mdiff --git a/DynamicIpMonitor/MainForm.Designer.cs b/DynamicIpMonitor/MainForm.Designer.cs[m
-[1mindex 79a8292..f92a95d 100644[m
-[1m--- a/DynamicIpMonitor/MainForm.Designer.cs[m
-[1m+++ b/DynamicIpMonitor/MainForm.Designer.cs[m
-[36m@@ -191,7 +191,7 @@[m [mnamespace DynamicIpMonitor[m
-         	this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";[m
-         	this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) [m
-         	        	        	| System.Windows.Forms.Keys.X)));[m
-[31m-        	this.cutToolStripMenuItem.Size = new System.Drawing.Size(189, 22);[m
-[32m+[m[41m        [m	[32mthis.cutToolStripMenuItem.Size = new System.Drawing.Size(219, 22);[m[41m[m
-         	this.cutToolStripMenuItem.Text = "Cu&t IP";[m
-         	this.cutToolStripMenuItem.Click += new System.EventHandler(this.OnCutToolStripMenuItemClick);[m
-         	// [m
-[36m@@ -202,7 +202,7 @@[m [mnamespace DynamicIpMonitor[m
-         	this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";[m
-         	this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) [m
-         	        	        	| System.Windows.Forms.Keys.C)));[m
-[31m-        	this.copyToolStripMenuItem.Size = new System.Drawing.Size(189, 22);[m
-[32m+[m[41m        [m	[32mthis.copyToolStripMenuItem.Size = new System.Drawing.Size(219, 22);[m[41m[m
-         	this.copyToolStripMenuItem.Text = "&Copy IP";[m
-         	this.copyToolStripMenuItem.Click += new System.EventHandler(this.OnCopyToolStripMenuItemClick);[m
-         	// [m
-[36m@@ -211,21 +211,23 @@[m [mnamespace DynamicIpMonitor[m
-         	this.pasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripMenuItem.Image")));[m
-         	this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;[m
-         	this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";[m
-[31m-        	this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));[m
-[31m-        	this.pasteToolStripMenuItem.Size = new System.Drawing.Size(189, 22);[m
-[32m+[m[41m        [m	[32mthis.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)[m[41m [m
-[32m+[m[41m        [m	[41m        [m	[41m        [m	[32m| System.Windows.Forms.Keys.V)));[m[41m[m
-[32m+[m[41m        [m	[32mthis.pasteToolStripMenuItem.Size = new System.Drawing.Size(219, 22);[m[41m[m
-         	this.pasteToolStripMenuItem.Text = "&Paste domain";[m
-         	this.pasteToolStripMenuItem.Click += new System.EventHandler(this.OnPasteToolStripMenuItemClick);[m
-         	// [m
-         	// toolStripSeparator7[m
-         	// [m
-         	this.toolStripSeparator7.Name = "toolStripSeparator7";[m
-[31m-        	this.toolStripSeparator7.Size = new System.Drawing.Size(186, 6);[m
-[32m+[m[41m        [m	[32mthis.toolStripSeparator7.Size = new System.Drawing.Size(216, 6);[m[41m[m
-         	// [m
-         	// selectAllToolStripMenuItem[m
-         	// [m
-         	this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";[m
-[31m-        	this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));[m
-[31m-        	this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(189, 22);[m
-[32m+[m[41m        [m	[32mthis.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)[m[41m [m
-[32m+[m[41m        [m	[41m        [m	[41m        [m	[32m| System.Windows.Forms.Keys.A)));[m[41m[m
-[32m+[m[41m        [m	[32mthis.selectAllToolStripMenuItem.Size = new System.Drawing.Size(219, 22);[m[41m[m
-         	this.selectAllToolStripMenuItem.Text = "Select &All";[m
-         	this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.OnSelectAllToolStripMenuItemClick);[m
-         	// [m
-[1mdiff --git a/DynamicIpMonitor/MainForm.cs b/DynamicIpMonitor/MainForm.cs[m
-[1mindex 2acc497..7a6551c 100644[m
-[1m--- a/DynamicIpMonitor/MainForm.cs[m
-[1m+++ b/DynamicIpMonitor/MainForm.cs[m
-[36m@@ -334,7 +334,17 @@[m [mnamespace DynamicIpMonitor[m
-         /// <param name="e">Event arguments.</param>[m
-         private void OnPasteToolStripMenuItemClick(object sender, EventArgs e)[m
-         {[m
-[31m-            // TODO Add code[m
-[32m+[m[32m            // Check there's something to paste[m
-[32m+[m[32m            if (Clipboard.ContainsText())[m
-[32m+[m[32m            {[m
-[32m+[m[32m                // Copy to domain text box[m
-[32m+[m[32m                this.domainTextBox.Text = Clipboard.GetText();[m
-[32m+[m[32m            }[m
-[32m+[m[32m            else[m
-[32m+[m[32m            {[m
-[32m+[m[32m                // Advise user[m
-[32m+[m[32m                this.SetStatus("No text to paste.", string.Empty);[m
-[32m+[m[32m            }[m
-         }[m
- [m
-         /// <summary>[m

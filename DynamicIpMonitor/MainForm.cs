@@ -420,7 +420,7 @@ namespace DynamicIpMonitor
         private void OnWeeklyReleasesPublicDomainWeeklycomToolStripMenuItemClick(object sender, EventArgs e)
         {
             // Open current website
-            Process.Start("https://publicdomainweekly.com");
+            Process.Start("https://publicdomaingift.com");
         }
 
         /// <summary>
@@ -482,7 +482,7 @@ namespace DynamicIpMonitor
             var aboutForm = new AboutForm(
                 $"About {programTitle}",
                 $"{programTitle} {version.Major}.{version.Minor}.{version.Build}",
-                $"Made for: davcom{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #306, Week #44 @ November 01, 2020",
+                $"Made for: davcom{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #342, Week #50 @ December 07, 2020",
                 licenseText,
                 this.Icon.ToBitmap());
 
