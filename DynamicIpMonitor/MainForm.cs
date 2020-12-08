@@ -204,7 +204,7 @@ namespace DynamicIpMonitor
             this.ipAddressTextBox.Text = this.ipAddressText;
 
             // Inform the user
-            this.SetStatus("Proessed:", $"{domainList.Count} domains.{(errorCount > 0 ? $" Errors: {errorCount}" : string.Empty)}");
+            this.SetStatus("Processed:", $"{domainList.Count} domains.{(errorCount > 0 ? $" Errors: {errorCount}" : string.Empty)}");
         }
 
         /// <summary>
