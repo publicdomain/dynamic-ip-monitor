@@ -1,7 +1,7 @@
 # Dynamic IP Monitor
 Gets IP address from domain name at regular intervals.
 
-![Release's image](https://user-images.githubusercontent.com/54631779/99269148-6a15fd80-27fc-11eb-91ba-78daefa9f38b.png)
+![Release's image](https://user-images.githubusercontent.com/54631779/101435583-f939a100-38e2-11eb-9e6d-182189dbfed3.png)
 
 Made for **davcom** from [donationcoder.com](https://www.donationcoder.com).
 
@@ -13,14 +13,15 @@ Usage video:
 
 Source code: [Dynamic IP Monitor @ GitHub](https://github.com/publicdomain/dynamic-ip-monitor)
 
-v0.2.0 notes:
+v0.2.1 notes:
+- Fix processed status message.
 
+v0.2.0 notes:
 - Multiple domains.
 - Domain=IP format.
 - Log errors to file.
 
 v0.1.0 notes:
-
 - Load/Save settings.
 - Auto-save on exit.
 - Cut, copy and paste by menu.
